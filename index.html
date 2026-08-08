@@ -6,56 +6,142 @@
 <title>Dioratessa Properties</title>
 
 <style>
-body{
+
+*{
 margin:0;
 padding:0;
-background:#111;
-color:white;
-font-family:Arial,sans-serif;
-display:flex;
-justify-content:center;
-align-items:center;
+box-sizing:border-box;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#000;
+font-family:Georgia,serif;
+}
+
+.hero{
+position:relative;
+width:100%;
 height:100vh;
-text-align:center;
+overflow:hidden;animation:fadeIn 2s ease;
 }
 
-.container{
-padding:20px;
+video{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+min-width:100%;
+min-height:100%;
+object-fit:cover;
+transform:translate(-50%,-50%) scale(0.87);
 }
 
-h1{
-font-size:52px;
-margin-bottom:10px;
+.mobile-video{
+display:none;
 }
 
-h2{
-font-weight:normal;
-font-style:italic;
-margin-top:0;
-margin-bottom:30px;
+.logo{
+position:absolute;
+top:60px;
+left:70px;
+z-index:5;
+width:260px;
+max-width:45vw;
+animation:fade 2s ease;
 }
 
-p{
-font-size:22px;
+@keyframes fade{
+from{
+opacity:1;
+transform:translateY(-20px);
 }
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideInRight{
+from{
+opacity:0;
+transform:translate(80px,-50%);
+}
+to{
+opacity:1;
+transform:translateY(-50%);
+}
+}
+
+.tagline{ position:absolute; right:110px; top:90px; 
+font-size:16px; font-style:italic; 
+font-family:Cinzel; color:rgba(255,255,255,.92); 
+letter-spacing:.5px; z-index:9; opacity:0; 
+animation:fade 1.5s ease forwards; 
+animation-delay:2s; 
+}
+
+.reserve-btn{ position:absolute;
+display:flex;
+justfy-content:center;
+align-items:center;
+text-align:center; 
+right:90px; top:53%; transform:translateY(-50%); 
+padding:20px 120px; border:3px solid #9b7b47; 
+color:white; text-decoration:none; font-size:14px; 
+letter-spacing:4px; 
+font-family:Avenir Next, Avenir, Arial, Sans-serif; 
+background:rgba(255,255,255,0.015); 
+backdrop-filter:blur(4px); z-index:10; 
+opacity:0; animation:slideInRight 1.2s ease forwards; 
+animation-delay:3s; transition:all .4s ease; 
+}
+.reserve-btn:hover{ background:rgba(0,0,0,0.95);
+backdrop-filter:blur(10px); 
+border:3px solid #0a0a0a;
+color:#9b7b47; 
+transform:translateY(-50%) scale(1.03); 
+}
+@media(max-width:768px){
+
+.desktop-video{
+display:none;
+}
+
+.mobile-video{
+display:block;
+}
+
+.logo{
+width:180px;
+top:20px;
+left:20px;
+}
+
+
+
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="hero">
 
-<h1>DIORATESSA PROPERTIES</h1>
+<video class="desktop-video" autoplay muted loop playsinline>
+<source src="videos/main video for web short.mp4" type="video/mp4">
+</video>
 
-<h2>In pursuit of perfection.</h2>
+<video class="mobile-video" autoplay muted loop playsinline>
+<source src="videos/main video for mobile.mp4" type="video/mp4">
+</video>
 
-<p>Luxury Residential Development</p>
-
-<p>📧 info@dioratessa.com</p>
-
+<img class="logo" src="images/DIORATESSA AND LOGO 1.png" alt="Dioratessa Properties">
+<div class="tagline">info@dioratessa.com</div>
+<a href="#" class="reserve-btn">+234 90 9000 7963</a>
 </div>
 
 </body>
-
 </html>
