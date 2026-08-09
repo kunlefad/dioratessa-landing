@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;
 400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/DIORATESSA LOGO SYMBOL WHITE FAV.png">
 <title>Dioratessa Properties</title>
 
 <style>
@@ -111,6 +112,7 @@ transform:translateY(-50%) scale(1.03);
 .desktop-video{
 display:none;
 }
+.tagline{display:none}
 
 .mobile-video{
 display:block;
@@ -192,7 +194,8 @@ transition:opacity .3s ease .12s;
 
 <div class="hero">
 
-<video class="desktop-video" autoplay muted loop playsinline>
+<video class="desktop-video"
+class=""desktop-video" autoplay muted loop playsinline>
 <source src="videos/main video for web short.mp4" type="video/mp4">
 </video>
 
@@ -206,7 +209,7 @@ class="tagline">info@dioratessa.com</div>
 <button class="menu-toggle" 
 aria-label="Open menu"><span></span><span></span></button>
 
-<a href="https://wa.me/2349090007963" class="reserve-btn">+234 90 9000 7963</a>
+<a href="#" class="reserve-btn">+234 90 9000 7963</a>
 <div class="mobile-menu">
 <div class="mobile-menu-content">
 <div class="mobile-menu-links">
@@ -226,6 +229,22 @@ aria-label="Open menu"><span></span><span></span></button>
 document.querySelector('.menu-toggle').addEventListener('click', function(){ 
 this.classList.toggle('active'); 
 }); 
+const desktopVideo = document.getElementById('desktopVideo');
+const optimizedVideo = 'videos/main video for web short optimized.mp4';
+if (navigator.connection && (navigator.connection.saveData || /2g|slow-2g/.test(navigator.connection.effectiveType))) {
+desktopVideo.src = optimizedVideo;
+desktopVideo.load();
+}
+const reserveBtn = document.querySelector('.reserve-btn');
+reserveBtn.addEventListener('click', function(event) {
+if (window.innerWidth <= 768) {
+event.preventDefault();
+window.location.href = 'https://wa.me/2349090007963';
+} else {
+event.preventDefault();
+}
+});
+
 </script>
 </body>
 </html>
